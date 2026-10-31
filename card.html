@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card JSON</title>
+    <!-- Perbaikan link Google Fonts agar Fira Code termuat dengan benar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #282a36; /* Background Dracula */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Container Utama Kartu - Tema Dracula */
+        .card {
+            background-color: #282a36; /* Dracula Background */
+            width: 380px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            color: #f8f8f2; /* Dracula Foreground */
+            overflow: hidden;
+            border: 1px solid #44475a; /* Dracula Comment/Selection */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border-color: #bd93f9; /* Efek menyala ungu khas Dracula saat hover */
+        }
+
+        /* Header Jendela (Mac Style) */
+        .card-header {
+            background-color: #191a21; /* Dracula Darker Background */
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #44475a;
+        }
+
+        .mac-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mac-buttons span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .close { background-color: #ff5555; } /* Merah Dracula */
+        .minimize { background-color: #ffb86c; } /* Oranye Dracula */
+        .maximize { background-color: #50fa7b; } /* Hijau Dracula */
+
+        .title {
+            font-size: 13px;
+            color: #6272a4; /* Dracula Comment */
+        }
+
+        .more-options {
+            color: #6272a4;
+            font-size: 12px;
+        }
+
+        /* Toolbar Ikon */
+        .card-toolbar {
+            background-color: #21222c;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #6272a4;
+            border-bottom: 1px solid #44475a;
+        }
+
+        .left-icons, .right-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Isi Kode / Editor */
+        .card-body {
+            display: flex;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.6;
+            background-color: #282a36;
+        }
+
+        .line-numbers {
+            color: #6272a4; /* Dracula Comment */
+            text-align: right;
+            padding-right: 16px;
+            user-select: none;
+        }
+
+        .code-content {
+            color: #f8f8f2; 
+        }
+
+        .line-comment {
+            color: #6272a4; /* Dracula Comment */
+            margin-bottom: 4px;
+        }
+
+        .bracket {
+            color: #f8f8f2;
+        }
+
+        .indent {
+            padding-left: 20px;
+        }
+
+        /* Pewarnaan Kode JSON (Syntax Highlighting Resmi Dracula) */
+        .key {
+            color: #ff79c6; /* Pink Dracula untuk properti/key JSON */
+        }
+
+        .string {
+            color: #f1fa8c; /* Kuning Dracula untuk string/value */
+        }
+
+        .link {
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+            color: #8be9fd; /* Cyan Dracula saat link diarahkan kursor */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="businessCard">
+        <!-- Bagian Atas / Header Jendela -->
+        <div class="card-header">
+            <div class="mac-buttons">
+                <span class="close"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="title">Kartu Pelajar Digital.json</div>
+            <div class="more-options">•••</div>
+        </div>
+
+        <!-- Bagian Toolbar Ikon Kecil -->
+        <div class="card-toolbar">
+            <div class="left-icons">
+                <span>📄</span>
+                <span>📋</span>
+                <span>📁</span>
+                <span>📥</span>
+                <span>{}</span>
+            </div>
+            <div class="right-icons">
+                <span>⬜</span>
+                <span>•••</span>
+            </div>
+        </div>
+
+        <!-- Bagian Isi Kode JSON -->
+        <div class="card-body">
+            <div class="line-numbers">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+            </div>
+            <div class="code-content">
+                <div class="line-comment">// Kartu Pelajar Digital.json</div>
+                <div><span class="bracket">{</span></div>
+                <div class="indent"><span class="key">"name"</span>: <span class="string">"DWI ANDIKA MAULANA"</span>,</div>
+                <div class="indent"><span class="key">"Instansi"</span>: <span class="string">"SMA NEGERI 1 SINUNUKAN"</span>,</div>
+                <div class="indent"><span class="key">"email"</span>: <a href="mailto:dwi.andika10122@sma.belajar.id" class="string link">"dwi.andika10122@sma.belajar.id"</a>,</div>
+                <div class="indent"><span class="key">"class"</span>: <span class="string">"XI.F1"</span></div>
+                <div><span class="bracket">}</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logika JavaScript interaktif tambahan
+        document.getElementById('businessCard').addEventListener('click', function() {
+            console.log("Kartu Pelajar Digital milik Dwi Andika Maulana diakses.");
+        });
+    </script>
+</body>
+</html>
